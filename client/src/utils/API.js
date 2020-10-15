@@ -1,11 +1,11 @@
 // This code is meant to serve as a mock fetch from an API.
-export const getDeveloper = new Promise(function(resolve) {
+export const getGoal = new Promise(function(resolve) {
   setTimeout(() => {
     resolve({
-      excitementLevel: 10000,
-      lifeLongLearner: true,
-      mood: "excited",
-      name: "Alec"
+      savings: 1200,
+      timeframe: 12,
+      deposit: 100,
+      month: true
     });
   }, 1000);
 });
