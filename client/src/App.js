@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import GoalInfo from "./components/Goal";
 import MonthBtns from "./components/MonthBtns";
 import Nav from "./components/Nav";
-import * as API from "./utils/API";
 import GoalContext from "./utils/GoalContext";
 import Form from "./components/Form";
 import "./App.css";
 
 function App() {
-  const [GoalState, setGoalState] = useState({
+  const [goalState, setGoalState] = useState({
+    value: "deposit",
     savings: 0,
     timeframe: 0,
     deposit: 0,
@@ -17,20 +17,20 @@ function App() {
 
   function changeMonth(Month) {
     if (Month === "determined") {
-      GoalState.savings -= 100;
-      GoalState.timeframe -= 1;
+      goalState.savings -= 100;
+      goalState.timeframe -= 1;
       checkGoal();
     }
     else {
     }
     setGoalState({
-      ...GoalState,
+      ...goalState,
       Month
     });
   }
 
   function checkGoal() {
-    if (GoalState.timeframe === 0) {
+    if (goalState.timeframe === 0) {
       alert("You have accomplished your goal!")
     }
     else {
@@ -38,39 +38,29 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    // For demonstration purposes, we mock an API call.
-    API.getGoal.then((res) => {
-      setGoalState(res);
-    });
-  }, []);
-
-  calculate = (event) => {
+  const calculate = (event) => {
     event.preventDefault();
-    if (this.state.value === "deposit") {
+    if (goalState.value === "deposit") {
       // get user input for savings and time frame
-      this.setState({ ...this.state, deposit: this.state.savings / this.state.timeframe });
+      setGoalState({ ...goalState, deposit: goalState.savings / goalState.timeframe });
     }
-    else if (this.state.value === "timeframe") {
+    else if (goalState.value === "timeframe") {
       // get user input for savings and deposit
-      this.setState({ ...this.state, timeframe: this.state.savings / this.state.deposit });
+      setGoalState({ ...goalState, timeframe: goalState.savings / goalState.deposit });
     }
     else {
       // get user input for savings and deposit
-      this.setState({ ...this.state, savings: this.state.timeframe * this.state.deposit });
+      setGoalState({ ...goalState, savings: goalState.timeframe * goalState.deposit });
     }
   }
 
-
   return (
-    <div className="container">
-      <GoalContext.Provider value={GoalState, setGoalState, calculate}>
-        <Nav />
-        <GoalInfo />
-        <MonthBtns changeMonth={changeMonth} />
-        <Form />
-      </GoalContext.Provider>
-    </div>
+    <GoalContext.Provider value={{ goalState, setGoalState, calculate }}>
+      <Nav />
+      <GoalInfo />
+      <MonthBtns changeMonth={changeMonth} />
+      <Form />
+    </GoalContext.Provider>
   );
 }
 

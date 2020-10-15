@@ -1,19 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import GoalContext from "../utils/GoalContext";
 
 function GoalInfo() {
-  const { savings, timeframe, deposit } = useContext(GoalContext);
+  const { goalState } = useContext(GoalContext);
+
+  useEffect(() => {console.log(goalState)});
 
   return (
     <div className="card">
       <div>
-        Amount left to save: {savings}
+        Amount left to save: {goalState.savings}
       </div>
       <div>
-        Timeframe: {timeframe} months
+        Timeframe: {goalState.timeframe} months
       </div>
       <div>
-        Deposit: {deposit} per month
+        Deposit: {goalState.deposit} per month
       </div>
     </div>
   );
