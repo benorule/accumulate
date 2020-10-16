@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import GoalContext from "../utils/GoalContext";
 
 
@@ -24,7 +24,7 @@ function Form() {
     }
 
     return (
-        <>
+        <div className="card">
             <div onChange={onChangeValue}>
                 <input type="radio" id="savings" name="savings" value="savings" />
                 <label for="savings">Savings (Goal)</label>
@@ -41,7 +41,7 @@ function Form() {
                 {goalState.value !== "deposit" ? <input onChange={handleInputChange} type="number" id="deposit" name="deposit" /> : <div></div>}
                 <button className="btn btn-primary" onClick={calculate}>Submit</button>
             </form>
-        </>
+        </div>
     );
 }
 

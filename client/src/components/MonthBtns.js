@@ -2,7 +2,7 @@ import React from "react";
 
 function MonthBtns({ changeMonth }) {
   return (
-    <div>
+    <div className="card">
       <button onClick={() => changeMonth("lazy")} className="btn btn-danger mx-4">
         Did Not Deposit This Month
       </button>
