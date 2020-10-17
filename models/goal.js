@@ -3,17 +3,19 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const GoalSchema = new Schema({
-    Savings: {
+    // user information such as username and password here
+    // one goal per user, in same schema
+    savings: {
         type: Number,
         required: true
     },
-    Timeframe: {
+    timeframe: {
         type: String,
         required: true
     },
-    Deposit: {
+    deposit: {
         type: String,
         required: true
     }
 });
-module.exports = Goal = mongoose.model("goals", GoalSchema);
+module.exports = Goal = mongoose.model("Goal", GoalSchema);
