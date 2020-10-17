@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GoalInfo from "./components/Goal";
 import MonthBtns from "./components/MonthBtns";
 import Nav from "./components/Nav";
@@ -56,14 +56,36 @@ function App() {
   }
 
   const save = () => {
-    axios.post("/api/goal/save", { goalState });
+    axios.post("/api/goal/save", { 
+      savings: goalState.savings,
+      timeframe: goalState.timeframe,
+      deposit: goalState.deposit
+     }).then((res) => {
+       console.log(res);
+      });
   }
+  
+  const update = () => {
+    axios.post("/api/goal/update", {
+      savings: goalState.savings,
+      timeframe: goalState.timeframe,
+      deposit: goalState.deposit
+    }).then((res) => {
+      console.log(res);
+    });
+  }
+
+  useEffect(() => {
+    axios.get("/api/goal").then((res) => {
+      setGoalState({ ...goalState, ...res.data[0] })
+    });
+  }, [] );
 
   return (
     <GoalContext.Provider value={{ goalState, setGoalState, calculate }}>
       <Nav />
       <GoalInfo />
-      <MonthBtns changeMonth={changeMonth} save={save} />
+      <MonthBtns changeMonth={changeMonth} save={save} goalState={goalState} update={update} />
       <Form />
     </GoalContext.Provider>
   );
