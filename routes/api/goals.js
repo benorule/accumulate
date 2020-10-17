@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const db = require("../models/goal");
 
-// load mathematical formulas
-const validateRegisterInput = require("../../calculation/calculation.js");
+router.post("/goal", (req, res) => {
+    db.Goal.update({
+        Savings: { goalState: savings },
+        Timeframe: { goalState: timeframe },
+        Deposit: { goalState: deposit }
+    })
+});
 
-// load goal model
-const Goal = require("../../models/goal.js")
-
+module.exports = router;
