@@ -17,4 +17,12 @@ router.get("/api/goal", (req, res) => {
     });
 });
 
+router.post("/api/goal/update", (req, res) => {
+    console.log(req.body);
+    const goal = new Goal(req.body);
+    goal.save((err, response) => {
+        console.log(response);
+    });
+})
+
 module.exports = router;
