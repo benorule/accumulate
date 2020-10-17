@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import GoalContext from "./utils/GoalContext";
 import Form from "./components/Form";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [goalState, setGoalState] = useState({
@@ -54,11 +55,15 @@ function App() {
     }
   }
 
+  const save = () => {
+    axios.post("/api/goal/save", { goalState });
+  }
+
   return (
     <GoalContext.Provider value={{ goalState, setGoalState, calculate }}>
       <Nav />
       <GoalInfo />
-      <MonthBtns changeMonth={changeMonth} />
+      <MonthBtns changeMonth={changeMonth} save={save} />
       <Form />
     </GoalContext.Provider>
   );
