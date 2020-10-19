@@ -66,10 +66,11 @@ function App() {
   }
   
   const update = () => {
-    axios.post("/api/goal/update", {
+    axios.put("/api/goal/update", {
       savings: goalState.savings,
       timeframe: goalState.timeframe,
-      deposit: goalState.deposit
+      deposit: goalState.deposit,
+      _id: goalState._id
     }).then((res) => {
       console.log(res);
     });

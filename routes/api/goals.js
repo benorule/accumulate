@@ -8,6 +8,7 @@ router.post("/api/goal/save", (req, res) => {
     const goal = new Goal(req.body);
     goal.save((err, response) => {
         console.log(response);
+        res.json(response);
     });
 });
 
@@ -17,11 +18,12 @@ router.get("/api/goal", (req, res) => {
     });
 });
 
-router.post("/api/goal/update", (req, res) => {
+
+// doesn't work, functions the same as save lol
+router.put("/api/goal/update", (req, res) => {
     console.log(req.body);
-    const goal = new Goal(req.body);
-    goal.save((err, response) => {
-        console.log(response);
+    Goal.findByIdAndUpdate(req.body._id, req.body).then((err, response) => {
+        res.json(response);
     });
 })
 
