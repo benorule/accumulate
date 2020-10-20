@@ -7,14 +7,7 @@ import "../App.css";
 import axios from "axios";
 
 
-function Signup() {
-    const [goalState, setGoalState] = useState({
-        value: "deposit",
-        savings: 0,
-        timeframe: 0,
-        deposit: 0,
-        month: true
-    });
+function Signup({ goalState, setGoalState }) {
 
     const calculate = (event) => {
         event.preventDefault();
@@ -32,21 +25,10 @@ function Signup() {
         }
     }
 
-    const save = () => {
-        axios.post("/api/goal/save", {
-            savings: goalState.savings,
-            timeframe: goalState.timeframe,
-            deposit: goalState.deposit
-        }).then((res) => {
-            console.log(res);
-        });
-    }
-
     return (
-        <GoalContext.Provider value={{ goalState, setGoalState, calculate }}>
-            <MonthBtns changeMonth={changeMonth} save={save} goalState={goalState} update={update} />
-            <Form />
-        </GoalContext.Provider>
+        <>
+            <Form goalState={ goalState } setGoalState={ setGoalState } calculate={ calculate }/>
+        </>
     );
 }
 

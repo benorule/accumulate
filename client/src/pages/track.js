@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import GoalInfo from "../components/Goal";
 import MonthBtns from "../components/MonthBtns";
 import GoalContext from "../utils/GoalContext";
-import Form from "../components/Form";
 import "../App.css";
 import axios from "axios";
 
 
-function Track() {
+function Track({ goalState, setGoalState }) {
     function changeMonth(Month) {
         if (Month === "determined") {
             goalState.savings -= 100;
@@ -44,15 +43,16 @@ function Track() {
 
     useEffect(() => {
         axios.get("/api/goal").then((res) => {
-            setGoalState({ ...goalState, ...res.data[0] })
+            console.log(res.data[0]);
+            setGoalState({ ...goalState, ...res.data[0] }) // savings: parseInt(res.data[0].savings)})
         });
     }, []);
 
     return (
-        <GoalContext.Provider value={{ goalState, setGoalState, calculate }}>
-            <GoalInfo />
-            <MonthBtns changeMonth={changeMonth} save={save} goalState={goalState} update={update} />
-        </GoalContext.Provider>
+        <>
+            <GoalInfo goalState={goalState} />
+            <MonthBtns changeMonth={changeMonth} goalState={goalState} update={update} />
+        </>
     );
 }
 

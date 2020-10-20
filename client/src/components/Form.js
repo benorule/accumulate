@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import GoalContext from "../utils/GoalContext";
-
+import axios from "axios";
 
 // make functional component and put calculate into app.js
 // keep onchangevalue and form inside
-function Form() {
-    const { goalState, setGoalState, calculate } = useContext(GoalContext);
-
+function Form({ goalState, setGoalState, calculate }) {
     const handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         const { name, value } = event.target;
@@ -21,6 +19,16 @@ function Form() {
     const onChangeValue = (event) => {
         console.log(event.target.value);
         setGoalState({ ...goalState, value: event.target.value });
+    }
+
+    const save = () => {
+        axios.post("/api/goal/save", {
+            savings: goalState.savings,
+            timeframe: goalState.timeframe,
+            deposit: goalState.deposit
+        }).then((res) => {
+            console.log(res);
+        });
     }
 
     return (
@@ -40,6 +48,7 @@ function Form() {
                 {goalState.value !== "timeframe" ? <input onChange={handleInputChange} type="number" id="timeframe" name="timeframe" /> : <div></div>}
                 {goalState.value !== "deposit" ? <input onChange={handleInputChange} type="number" id="deposit" name="deposit" /> : <div></div>}
                 <button className="btn btn-primary" onClick={calculate}>Calculate</button>
+                <button className="btn btn-primary mx-4" onClick={save}>Save</button>
             </form>
         </div>
     );

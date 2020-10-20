@@ -9,11 +9,7 @@ function MonthBtns({ changeMonth, save, goalState, update }) {
       <button onClick={() => changeMonth("determined")} className="btn btn-success mx-4">
         Deposited This Month
       </button>
-      { goalState._id ?
-        (<button className="btn btn-primary mx-4" onClick={update}>Update</button>)
-        :
-        (<button className="btn btn-primary mx-4" onClick={save}>Save</button>)
-    }
+      <button className="btn btn-primary mx-4" onClick={update}>Update</button>
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import GoalContext from "../utils/GoalContext";
 
-function GoalInfo() {
-  const { goalState } = useContext(GoalContext);
+function GoalInfo({ goalState }) {
 
   useEffect(() => {console.log(goalState)});
 
