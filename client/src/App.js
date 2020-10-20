@@ -6,6 +6,8 @@ import GoalContext from "./utils/GoalContext";
 import Form from "./components/Form";
 import "./App.css";
 import axios from "axios";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Track from "./pages/track.js";
 
 function App() {
   const [goalState, setGoalState] = useState({
@@ -56,15 +58,15 @@ function App() {
   }
 
   const save = () => {
-    axios.post("/api/goal/save", { 
+    axios.post("/api/goal/save", {
       savings: goalState.savings,
       timeframe: goalState.timeframe,
       deposit: goalState.deposit
-     }).then((res) => {
-       console.log(res);
-      });
+    }).then((res) => {
+      console.log(res);
+    });
   }
-  
+
   const update = () => {
     axios.put("/api/goal/update", {
       savings: goalState.savings,
@@ -80,16 +82,26 @@ function App() {
     axios.get("/api/goal").then((res) => {
       setGoalState({ ...goalState, ...res.data[0] })
     });
-  }, [] );
+  }, []);
 
   return (
-    <GoalContext.Provider value={{ goalState, setGoalState, calculate }}>
-      <Nav />
-      <GoalInfo />
-      <MonthBtns changeMonth={changeMonth} save={save} goalState={goalState} update={update} />
-      <Form />
-    </GoalContext.Provider>
+    <Router>
+      <div>
+        <Nav />
+        <Route exact path="/track" component={Track} />
+      </div>
+    </Router>
   );
 }
+
+//   return (
+//     <GoalContext.Provider value={{ goalState, setGoalState, calculate }}>
+//       <Nav />
+//       <GoalInfo />
+//       <MonthBtns changeMonth={changeMonth} save={save} goalState={goalState} update={update} />
+//       <Form />
+//     </GoalContext.Provider>
+//   );
+// }
 
 export default App;
