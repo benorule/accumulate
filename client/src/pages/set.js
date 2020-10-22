@@ -1,9 +1,9 @@
 import React from "react";
-import Signup from "../components/Signup";
+import Form from "../components/Form";
 import "../App.css";
 
 
-function Signup({ goalState, setGoalState }) {
+function Set({ goalState, setGoalState }) {
 
     const calculate = (event) => {
         event.preventDefault();
@@ -23,9 +23,9 @@ function Signup({ goalState, setGoalState }) {
 
     return (
         <>
-            <Signup userState={ userState } setUserState={ setUserState }/>
+            <Form goalState={ goalState } setGoalState={ setGoalState } calculate={ calculate }/>
         </>
     );
 }
 
-export default Signup;
+export default Set;

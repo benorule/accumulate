@@ -1,9 +1,6 @@
-import React, { useContext, useEffect } from "react";
-import GoalContext from "../utils/GoalContext";
+import React from "react";
 
 function GoalInfo({ goalState }) {
-
-  useEffect(() => {console.log(goalState)});
 
   return (
     <div className="card">

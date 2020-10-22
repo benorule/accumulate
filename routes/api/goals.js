@@ -1,19 +1,18 @@
 const express = require("express");
-const goal = require("../../models/goal.js");
 const router = express.Router();
-const Goal = require("../../models/goal.js");
+const User = require("../../models/user.js");
 
 router.post("/api/goal/save", (req, res) => {
-    console.log(req.body);
-    const goal = new Goal(req.body);
-    goal.save((err, response) => {
-        console.log(response);
-        res.json(response);
+    console.log("/api/goal/save ->" + JSON.stringify(req.body));
+    // const goal = new Goal(req.body);
+    User.create(req.body, (err, goal) => {
+        console.log("Line 10: " + goal);
+        res.json(goal);
     });
 });
 
 router.get("/api/goal", (req, res) => {
-    Goal.find().then((response) => {
+    User.find().then((response) => {
         res.json(response);
     });
 });

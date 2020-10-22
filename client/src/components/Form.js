@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import GoalContext from "../utils/GoalContext";
+import React from "react";
 import axios from "axios";
 
 // make functional component and put calculate into app.js
