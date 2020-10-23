@@ -9,6 +9,7 @@ passport.use(
       usernameField: "email"
     },
     (email, password, done) => {
+      // console.log(email);
       User.findOne(
         {
           email: email
@@ -35,6 +36,7 @@ passport.use(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
+  console.log(user);
   cb(null, user);
 });
 

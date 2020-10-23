@@ -19,10 +19,10 @@ const UserSchema = new Schema({
         type: Number,
     },
     timeframe: {
-        type: String,
+        type: Number,
     },
     deposit: {
-        type: String,
+        type: Number,
     }
 });
 
