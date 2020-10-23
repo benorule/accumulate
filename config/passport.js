@@ -14,6 +14,7 @@ passport.use(
           email: email
         }
       ).then(user => {
+        console.log(user)
         if (!user) {
           return done(null, false, {
             message: "Incorrect email."
