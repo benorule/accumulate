@@ -1,7 +1,7 @@
 import React from "react";
 import GoalInfo from "../components/Goal";
 import MonthBtns from "../components/MonthBtns";
-import "../App.css";
+import "../App.scss";
 import axios from "axios";
 
 function Track({ goalState, setGoalState }) {

@@ -21,11 +21,14 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bulma": "^0.9.1",
     "express": "^4.16.3",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.10.9",
+    "node-sass": "^4.14.1",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "react-bulma-components": "^3.4.0"
   }
 }

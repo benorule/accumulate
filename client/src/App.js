@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Button from 'react-bulma-components/lib/components/button';
 import Nav from "./components/Nav";
-import "./App.css";
+import './App.scss';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Track from "./pages/track.js";
 import Set from "./pages/set.js";
-import Signup from  "./pages/signup.js";
+import Signup from "./pages/signup.js";
 import SignIn from "./pages/signin.js";
 import axios from "axios";
 
@@ -28,10 +29,11 @@ function App({ userState, setUserState }) {
     <Router>
       <div>
         <Nav />
+        <Button color='primary'>Press Me!</Button>
         <Route exact path="/"><Track goalState={goalState} setGoalState={setGoalState} /></Route>
         <Route exact path="/set"><Set goalState={goalState} setGoalState={setGoalState} /></Route>
         <Route exact path="/signup"><Signup userState={userState} setUserState={setUserState} /></Route>
-        <Route exact path="/signin"><SignIn userState={userState} setUserState={setUserState}/></Route>
+        <Route exact path="/signin"><SignIn userState={userState} setUserState={setUserState} /></Route>
       </div>
     </Router>
   );
