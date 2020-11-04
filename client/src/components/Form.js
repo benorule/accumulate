@@ -1,5 +1,8 @@
 import React from "react";
 import axios from "axios";
+import 'react-bulma-components/dist/react-bulma-components.min.css';
+import { Button } from 'react-bulma-components';
+ 
 
 // make functional component and put calculate into app.js
 // keep onchangevalue and form inside
@@ -64,8 +67,8 @@ function Form({ goalState, setGoalState }) {
                 {goalState.value !== "savings" ? <input onChange={handleInputChange} type="number" id="savings" name="savings" /> : <div></div>}
                 {goalState.value !== "timeframe" ? <input onChange={handleInputChange} type="number" id="timeframe" name="timeframe" /> : <div></div>}
                 {goalState.value !== "deposit" ? <input onChange={handleInputChange} type="number" id="deposit" name="deposit" /> : <div></div>}
-                <button className="btn btn-primary" onClick={calculate}>Calculate</button>
-                <button className="btn btn-primary mx-4" onClick={save}>Save</button>
+                <Button color='primary' onClick={calculate}>Calculate</Button>
+                <Button color='success' onClick={save}>Save</Button>
             </form>
         </div>
     );
