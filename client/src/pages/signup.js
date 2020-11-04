@@ -3,10 +3,10 @@ import Register from "../components/Register";
 import "../App.scss";
 
 
-function Signup({ userState, setUserState }) {
+function Signup({ goalState, setGoalState }) {
     return (
         <>
-            <Register userState={ userState } setUserState={ setUserState }/>
+            <Register goalState={ goalState } setGoalState={ setGoalState }/>
         </>
     );
 }

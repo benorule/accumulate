@@ -25,7 +25,8 @@ function Form({ goalState, setGoalState }) {
         axios.post("/api/goal/save", {
             savings: goalState.savings,
             timeframe: goalState.timeframe,
-            deposit: goalState.deposit
+            deposit: goalState.deposit,
+            _id: goalState._id
         }).then((res) => {
             console.log(res);
         });

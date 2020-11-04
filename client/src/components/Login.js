@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function Login() {
-    const [userState, setUserState] = useState({
-        email: "",
-        password: ""
-    });
-
+function Login( { goalState, setGoalState } ) {
     const enter = event => {
         const { name, value } = event.target;
 
         // Updating the input's state
-        setUserState({
-            ...userState,
+        setGoalState({
+            ...goalState,
             [name]: value
         });
-        console.log(userState);
+        console.log(goalState);
     };
 
     const login = (event) => {
         event.preventDefault();
-        console.log(userState);
-        axios.post("/api/goal/login", userState)
+        console.log(goalState);
+        axios.post("/api/goal/login", goalState)
         .then((res) => {
+            setGoalState({
+                ...goalState,
+                _id: res._id
+            });
             console.log(res);
         });
     }

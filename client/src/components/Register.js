@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function Register() {
-    const [userState, setUserState] = useState({
-        email: "",
-        password: ""
-    });
-
+function Register({ goalState, setGoalState }) {
     const handleInputChange = event => {
         const { name, value } = event.target;
 
-        setUserState({
-            ...userState,
+        setGoalState({
+            ...goalState,
             [name]: value
         });
     };
 
     const submit = (event) => {
         event.preventDefault();
-        console.log(userState);
-        axios.post("/api/goal/register", userState)
+        console.log(goalState);
+        axios.post("/api/goal/register", goalState)
         .then((res) => {
             console.log(res);
+            setGoalState({
+                ...goalState,
+                _id: res._id
+            });
         });
     }
 

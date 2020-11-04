@@ -1,9 +1,10 @@
 import React from "react";
+import Card from 'react-bulma-components/lib/components/card';
 
 function GoalInfo({ goalState }) {
 
   return (
-    <div className="card">
+    <Card>
       <div>
         Amount left to save: {goalState.savings}
       </div>
@@ -13,7 +14,7 @@ function GoalInfo({ goalState }) {
       <div>
         Deposit: {goalState.deposit} per month
       </div>
-    </div>
+    </Card>
   );
 }
 

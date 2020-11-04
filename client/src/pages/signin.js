@@ -3,10 +3,10 @@ import Login from "../components/Login";
 import "../App.scss";
 
 
-function SignIn({ userState, setUserState }) {
+function SignIn({ goalState, setGoalState }) {
     return (
         <>
-            <Login userState={ userState } setUserState={ setUserState }/>
+            <Login goalState={ goalState } setGoalState={ setGoalState }/>
         </>
     );
 }
