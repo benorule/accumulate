@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Card from 'react-bulma-components/lib/components/card';
 
 function Nav() {
   return (

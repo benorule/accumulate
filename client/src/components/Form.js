@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Button } from 'react-bulma-components';
- 
+import Card from 'react-bulma-components/lib/components/card';
+
 
 // make functional component and put calculate into app.js
 // keep onchangevalue and form inside
@@ -38,38 +38,44 @@ function Form({ goalState, setGoalState }) {
     const calculate = (event) => {
         event.preventDefault();
         if (goalState.value === "deposit") {
-          // get user input for savings and time frame
-          setGoalState({ ...goalState, deposit: goalState.savings / goalState.timeframe });
+            // get user input for savings and time frame
+            setGoalState({ ...goalState, deposit: goalState.savings / goalState.timeframe });
         }
         else if (goalState.value === "timeframe") {
-          // get user input for savings and deposit
-          setGoalState({ ...goalState, timeframe: goalState.savings / goalState.deposit });
+            // get user input for savings and deposit
+            setGoalState({ ...goalState, timeframe: goalState.savings / goalState.deposit });
         }
         else {
-          // get user input for savings and deposit
-          setGoalState({ ...goalState, savings: goalState.timeframe * goalState.deposit });
+            // get user input for savings and deposit
+            setGoalState({ ...goalState, savings: goalState.timeframe * goalState.deposit });
         }
-      }
+    }
 
     return (
-        <div className="card">
-            <div onChange={onChangeValue}>
-                <input type="radio" id="savings" name="variable" value="savings" />
-                <label htmlFor="savings">Savings (Goal)</label>
-                <br />
-                <input type="radio" id="timeframe" name="variable" value="timeframe" />
-                <label htmlFor="timeframe">Timeframe (In Months)</label>
-                <br />
-                <input type="radio" id="deposit" name="variable" value="deposit" />
-                <label htmlFor="deposit">Deposit (Monthly)</label>
-            </div>
-            <form>
-                {goalState.value !== "savings" ? <input onChange={handleInputChange} type="number" id="savings" name="savings" /> : <div></div>}
-                {goalState.value !== "timeframe" ? <input onChange={handleInputChange} type="number" id="timeframe" name="timeframe" /> : <div></div>}
-                {goalState.value !== "deposit" ? <input onChange={handleInputChange} type="number" id="deposit" name="deposit" /> : <div></div>}
-                <Button color='primary' onClick={calculate}>Calculate</Button>
-                <Button color='success' onClick={save}>Save</Button>
-            </form>
+        <div>
+            <Card>
+                <h1 class="title">Set your goal</h1>
+                <h6 class="subtitle">Click the variable you're unsure about, enter the values for the other two, and click the button to calculate the value of the unknown variable.</h6>
+                <div onChange={onChangeValue}>
+                    <input class="radio" type="radio" id="savings" name="variable" value="savings" />
+                    <label class="checkbox" htmlFor="savings">Savings (Goal)</label>
+                    <br />
+                    <input class="radio" type="radio" id="timeframe" name="variable" value="timeframe" />
+                    <label class="checkbox" htmlFor="timeframe">Timeframe (In Months)</label>
+                    <br />
+                    <input class="radio" type="radio" id="deposit" name="variable" value="deposit" />
+                    <label class="checkbox" htmlFor="deposit">Deposit (Monthly)</label>
+                </div>
+                <form>
+                    {goalState.value !== "savings" ? <input class="input is-primary" placeholder="savings" onChange={handleInputChange} type="number" id="savings" name="savings" /> : <div></div>}
+                    {goalState.value !== "timeframe" ? <input class="input is-primary" placeholder="timeframe" onChange={handleInputChange} type="number" id="timeframe" name="timeframe" /> : <div></div>}
+                    {goalState.value !== "deposit" ? <input class="input is-primary" placeholder="deposit" onChange={handleInputChange} type="number" id="deposit" name="deposit" /> : <div></div>}
+                </form> 
+                </Card>
+                <Card>             
+                <Button color='success' onClick={calculate} className="btn btn-success mx-4">Calculate</Button>
+                <Button color='primary' onClick={save} className="btn btn-success mx-4">Save</Button>
+                </Card>
         </div>
     );
 }

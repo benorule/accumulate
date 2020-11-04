@@ -29,6 +29,8 @@ function Login({ goalState, setGoalState }) {
 
     return (
         <div className="card">
+                <h1 class="title">Sign in</h1>
+                <h6 class="subtitle">Welcome back to accumulate! Sign in to view and update your progress toward your goal.</h6>
             <form>
                 <label class="label">Email</label>
                 <input class="input is-primary" placeholder="email" onInput={enter} type="text" id="email" name="email" />
