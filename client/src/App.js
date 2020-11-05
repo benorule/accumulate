@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Button from 'react-bulma-components/lib/components/button';
-import Navbar from 'react-bulma-components/lib/components/navbar';
 import '../../client/node_modules/bulma/bulma.sass'
 import Nav from "./components/Nav";
 import './App.scss';

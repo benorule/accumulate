@@ -54,27 +54,27 @@ function Form({ goalState, setGoalState }) {
     return (
         <div>
             <Card>
-                <h1 class="title">Set your goal</h1>
-                <h6 class="subtitle">Click the variable you're unsure about, enter the values for the other two, and click the button to calculate the value of the unknown variable.</h6>
+                <h1 className="title">Set your goal</h1>
+                <h6 className="subtitle">Click the variable you're unsure about, enter the values for the other two, and click the button to calculate the value of the unknown variable.</h6>
                 <div onChange={onChangeValue}>
-                    <input class="radio" type="radio" id="savings" name="variable" value="savings" />
-                    <label class="checkbox" htmlFor="savings">Savings (Goal)</label>
+                    <input className="radio" type="radio" id="savings" name="variable" value="savings" />
+                    <label className="checkbox" htmlFor="savings">Savings (Goal)</label>
                     <br />
-                    <input class="radio" type="radio" id="timeframe" name="variable" value="timeframe" />
-                    <label class="checkbox" htmlFor="timeframe">Timeframe (In Months)</label>
+                    <input className="radio" type="radio" id="timeframe" name="variable" value="timeframe" />
+                    <label className="checkbox" htmlFor="timeframe">Timeframe (In Months)</label>
                     <br />
-                    <input class="radio" type="radio" id="deposit" name="variable" value="deposit" />
-                    <label class="checkbox" htmlFor="deposit">Deposit (Monthly)</label>
+                    <input className="radio" type="radio" id="deposit" name="variable" value="deposit" />
+                    <label className="checkbox" htmlFor="deposit">Deposit (Monthly)</label>
                 </div>
                 <form>
-                    {goalState.value !== "savings" ? <input class="input is-primary" placeholder="savings" onChange={handleInputChange} type="number" id="savings" name="savings" /> : <div></div>}
-                    {goalState.value !== "timeframe" ? <input class="input is-primary" placeholder="timeframe" onChange={handleInputChange} type="number" id="timeframe" name="timeframe" /> : <div></div>}
-                    {goalState.value !== "deposit" ? <input class="input is-primary" placeholder="deposit" onChange={handleInputChange} type="number" id="deposit" name="deposit" /> : <div></div>}
+                    {goalState.value !== "savings" ? <input className="input is-primary" placeholder="savings" onChange={handleInputChange} type="number" id="savings" name="savings" /> : <div></div>}
+                    {goalState.value !== "timeframe" ? <input className="input is-primary" placeholder="timeframe" onChange={handleInputChange} type="number" id="timeframe" name="timeframe" /> : <div></div>}
+                    {goalState.value !== "deposit" ? <input className="input is-primary" placeholder="deposit" onChange={handleInputChange} type="number" id="deposit" name="deposit" /> : <div></div>}
                 </form> 
                 </Card>
                 <Card>             
-                <Button color='success' onClick={calculate} className="btn btn-success mx-4">Calculate</Button>
-                <Button color='primary' onClick={save} className="btn btn-success mx-4">Save</Button>
+                <Button color='success' onClick={calculate} classNameName="btn btn-success mx-4">Calculate</Button>
+                <Button color='primary' onClick={save} classNameName="btn btn-success mx-4">Save</Button>
                 </Card>
         </div>
     );

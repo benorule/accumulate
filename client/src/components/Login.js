@@ -29,13 +29,13 @@ function Login({ goalState, setGoalState }) {
 
     return (
         <div className="card">
-                <h1 class="title">Sign in</h1>
-                <h6 class="subtitle">Welcome back to accumulate! Sign in to view and update your progress toward your goal.</h6>
+                <h1 className="title">Sign in</h1>
+                <h6 className="subtitle">Welcome back to accumulate! Sign in to view and update your progress toward your goal.</h6>
             <form>
-                <label class="label">Email</label>
-                <input class="input is-primary" placeholder="email" onInput={enter} type="text" id="email" name="email" />
-                <label class="label">Password</label>
-                <input class="input is-primary" placeholder="password" onInput={enter} type="password" id="password" name="password" />
+                <label className="label">Email</label>
+                <input className="input is-primary" placeholder="email" onInput={enter} type="text" id="email" name="email" />
+                <label className="label">Password</label>
+                <input className="input is-primary" placeholder="password" onInput={enter} type="password" id="password" name="password" />
                 <Button color="primary" onClick={login}>Submit</Button>
             </form>
         </div>
