@@ -1,32 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Card from 'react-bulma-components/lib/components/card';
 
 function Nav() {
   return (
     <div>
-      <section class="hero is-primary">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">Accumulate</h1>
-            <h2 class="subtitle">Personal Finance</h2>
+      <section className="hero is-primary">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title">Accumulate</h1>
+            <h2 className="subtitle">Personal Finance</h2>
           </div>
         </div>
       </section>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item">
+      <nav className="navbar" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <div className="navbar-item">
             <NavLink to="/">Track</NavLink>
-          </a>
-          <a class="navbar-item">
+          </div>
+          <div className="navbar-item">
             <NavLink to="/set">Set</NavLink>
-          </a>
-          <a class="navbar-item">
+          </div>
+          <div className="navbar-item">
             <NavLink to="/signin">Sign in</NavLink>
-          </a>
-          <a class="navbar-item">
+          </div>
+          <div className="navbar-item">
             <NavLink to="/signup">Signup</NavLink>
-          </a>
+          </div>
         </div>
       </nav>
     </div>

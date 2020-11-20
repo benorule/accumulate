@@ -28,6 +28,7 @@ function Track({ goalState, setGoalState }) {
         }
     }
 
+    // Update savings, timeframe and deposit values
     const update = () => {
         axios.put("/api/goal/update", {
             savings: goalState.savings,
