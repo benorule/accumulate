@@ -23,5 +23,5 @@ To test this application try entering a burger and devouring a burger on the dep
 
 
 Project Management:
-![Data Flow](project-management/UI-flow?raw=true "Title")
-![UI Flow](project-management/data-flow.png?raw=true "UI Flow")
+![Data Flow](project-management/data-flow.png?raw=true "Title")
+![UI Flow](project-management/UI-flow.png?raw=true "UI Flow")
